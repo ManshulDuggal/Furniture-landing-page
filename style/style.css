@@ -1,0 +1,525 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#logo {
+  font-size: 2.4rem;
+  font-family: "Lobster", cursive;
+  color: black;
+}
+
+a {
+  color: black;
+  text-decoration: noneblack;
+}
+
+h2 {
+  font-family: "Dela Gothic One", cursive;
+  font-size: 3rem;
+  color: black;
+}
+
+p {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  color: black;
+}
+
+.li {
+  font-size: 1.5rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: white;
+  overflow-x: hidden;
+  /* to get rid of the scroll bar on the bottom  */
+}
+
+main {
+  position: absolute;
+}
+
+.nav-container {
+  min-height: 10vh;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  width: 80%;
+  margin: auto;
+  padding: 2rem 0rem;
+  z-index: 3;
+  position: relative;
+}
+
+.line1,
+.line2,
+.line3 {
+  width: 2rem;
+  height: 0.2rem;
+  margin: 0.4rem;
+  background: black;
+}
+
+.slide {
+  min-height: 100vh;
+  margin: 0 auto 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide img {
+  width: 50%;
+  height: 50%;
+  background-color: black;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-basis: 25rem;
+  padding-left: 5rem;
+  position: relative;
+}
+
+.description h2 {
+  font-size: 3rem;
+  padding-bottom: 2rem;
+}
+
+.img-intro {
+  position: relative;
+  flex: 1;
+  flex-basis: 25rem;
+  overflow: hidden;
+}
+
+.img-intro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro1-highlight {
+  color: rgb(25, 206, 167);
+}
+
+.intro2-highlight {
+  color: rgb(228, 179, 43);
+}
+
+.intro3-highlight {
+  color: rgba(110, 109, 24, 0.76);
+}
+
+.explore {
+  font-family: "Roboto", sans-serif;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: none;
+  color: black;
+  border: none;
+  border: 1px solid black;
+  font-size: 1.52rem;
+  text-decoration: none;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.navbar-full {
+  font-family: "Roboto", sans-serif;
+  background: white;
+  color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  opacity: 1;
+  clip-path: circle(50px at 100% -10%);
+}
+
+.burger-nav {
+  cursor: pointer;
+}
+
+.nav-links {
+  font-size: 5rem;
+  flex-basis: 25rem;
+}
+
+.nav-links h3 {
+  padding: 1rem 0rem;
+}
+
+.contact {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  flex-basis: 30rem;
+}
+
+.contact h2 {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  font-size: 2rem;
+  padding: 2rem 0rem;
+}
+
+.contact p {
+  color: black;
+  font-size: 2rem;
+}
+
+.reveal-img,
+.reveal-text {
+  position: absolute;
+  width: 100%;
+  height: 180%;
+  background: white;
+  left: 0;
+  top: -18%;
+}
+
+.cursor {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid black;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+  z-index: 2;
+  transition-property: background, transform;
+}
+
+.cursor.nav-active {
+  background: rgb(228, 179, 43);
+  transform: scale(3);
+}
+
+.cursor.explore-active {
+  border: none;
+  border-color: rgba(0, 0, 0, 0.404);
+  background: rgba(0, 0, 0, 0.404);
+  transform: scale(3);
+}
+
+.cursor.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  position: relative;
+  overflow: hidden;
+}
+.title-swipe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  mix-blend-mode: lighten;
+  pointer-events: none;
+  transform: translateY(100%);
+}
+
+.t-s-1 {
+  background: rgb(25, 206, 167);
+}
+.t-s-2 {
+  background: rgb(228, 179, 43);
+}
+.t-s-3 {
+  background: rgba(110, 109, 24, 0.76);
+}
+
+body.hide {
+  overflow: hidden;
+}
+
+.scrollmagic {
+  /* fixing not being able to click explore button due to the lingering trigger */
+  position: static !important;
+}
+
+/* -------------------------------------BARBA JS PAGE ----------------------------------------------------------------- */
+.furniture1,
+.furniture2,
+.furniture3,
+.furniture4 {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  position: relative;
+}
+
+.furniture-image {
+  height: 85vh;
+  flex-basis: 230rem;
+}
+
+.furniture-image img {
+  height: 90%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.furniture-text {
+  flex: 1;
+  padding: 5rem;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  flex-basis: 195rem;
+}
+
+.furniture-text h1 {
+  font-size: 4rem;
+}
+.furniture-text p {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  padding: 2rem 2rem 0rem 0rem;
+  margin-top: 4rem;
+}
+
+.furniture1 h1 {
+  color: rgb(7, 34, 33);
+}
+.furniture2 h1 {
+  color: rgb(224, 166, 111);
+}
+.furniture3 h1 {
+  color: rgb(74, 74, 77);
+}
+.furniture4 h1 {
+  color: rgb(92, 38, 25);
+}
+
+.furniture-nr {
+  position: absolute;
+  font-size: 14rem;
+  top: 65%;
+  right: 50%;
+  opacity: 0.2;
+}
+
+.swipe {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+}
+.swipe1 {
+  background: rgb(170, 166, 166);
+  z-index: 5;
+}
+.swipe2 {
+  background: rgb(81, 82, 80);
+  z-index: 4;
+}
+.swipe3 {
+  background: rgb(87, 82, 82);
+  z-index: 3;
+}
+
+/* main homepage media queries */
+
+@media screen and (max-width: 1024px) {
+  main {
+    width: 100%;
+    margin: 0;
+  }
+
+  .description h2 {
+    padding: 0%;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+  }
+  .description p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  .img-intro {
+    display: block;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .slide {
+    display: block;
+    width: 100%;
+    margin: 0%;
+  }
+  .slide img {
+    width: 80%;
+    height: 480px;
+    display: block;
+    margin: auto;
+    background: white;
+    object-fit: contain;
+  }
+
+  .explore {
+    margin-top: 0.4rem;
+    width: 30%;
+padding: 0.4rem 0.2rem;
+    text-align: center;
+    font-size: 1rem;
+    align-self: center;
+   
+  }
+
+  .nav-links {
+    font-size: 2rem;
+    flex-basis: 10rem;
+  }
+  .contact h2 {
+    font-size: 2rem;
+  }
+
+  .contact p {
+    font-size: 1.4rem;
+  }
+  .line3 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  main {
+    padding: 0%;
+    width: 100%;
+    margin: 0;
+  }
+
+  .slide {
+    display: block;
+    
+  }
+  .slide img {
+    width: 100%;
+    height: 360px;
+    display: block;
+    object-fit: cover;
+  }
+.description{
+  padding: 0px;
+}
+  .description h2 {
+    padding-top: 2rem;
+    text-align: center;
+    margin-top: 1.3rem;
+    font-size: 1rem;
+  }
+  .description p {
+    text-align: center;
+    padding-top: 0rem;
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+  .explore {
+    margin-top: 0.8rem;
+    width: 30%;
+    padding: 0.1rem 0.2rem;
+    text-align: center;
+    font-size: 1rem;
+    align-self: center;
+   
+  }
+  .nav-links {
+    margin-top: 20rem;
+    font-size: 2rem;
+    flex-basis: 10rem;
+    text-align: center;
+  }
+  .navbar-full {
+    display: block;
+  }
+  .nav-links ul {
+    font-size: 2rem;
+    flex-basis: 20rem;
+  }
+  .contact {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+  }
+}
+
+/* barba media queries */
+@media screen and (max-width: 450px){
+.style-slide{
+  width: 100%;
+  margin: 0%;
+  display: block;
+}
+body{
+  overflow-x: hidden;
+}
+.furniture-text h1{
+  font-size: 2rem;
+  padding: 0px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.furniture-text p{
+ 
+  padding: 0px;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.furniture-nr {
+  position: absolute;
+  font-size: 6rem;
+  top: 55%;
+  right: 85%;
+  opacity: 1;
+}
+.furniture-image{
+  width: 100%;
+  height: 360px;
+  
+}
+.style-slide img{
+
+  object-fit: contain;
+
+}
+.navbar-full {
+  display: block;
+  
+}
+
+}
